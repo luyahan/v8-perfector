@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "document-skills",
-      "description": "Collection of document processing suite including Excel, Word, PowerPoint, and PDF capabilities",
+      "description": "Collection of v8 document",
       "source": "./",
       "strict": false,
       "skills": [
