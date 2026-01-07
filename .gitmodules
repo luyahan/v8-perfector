@@ -1,0 +1,6 @@
+[submodule "skills/v8-perfector/reference/src/blog"]
+	path = skills/v8-perfector/reference/src/blog
+	url = git@github.com:v8/v8.dev.git
+[submodule "skills/v8-perfector/reference/v8-dev"]
+	path = skills/v8-perfector/reference/v8-dev
+	url = git@github.com:v8/v8.dev.git
