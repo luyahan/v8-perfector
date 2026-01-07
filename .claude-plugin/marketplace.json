@@ -1,16 +1,16 @@
 {
-  "name": "v8-skills",
+  "name": "v8-perfector",
   "owner": {
     "name": "luyahan",
     "email": "luyahan@qq.com"
   },
   "metadata": {
-    "description": "v8-skills",
+    "description": "v8-perfector",
     "version": "0.0.1"
   },
   "plugins": [
     {
-      "name": "v8-document-skills",
+      "name": "v8-perfector",
       "description": "Collection of v8 document",
       "source": "./",
       "strict": false,
