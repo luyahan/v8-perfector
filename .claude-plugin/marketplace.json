@@ -1,12 +1,12 @@
 {
-  "name": "anthropic-agent-skills",
+  "name": "v8-skills",
   "owner": {
-    "name": "Keith Lazuka",
-    "email": "klazuka@anthropic.com"
+    "name": "luyahan",
+    "email": "luyahan@qq.com"
   },
   "metadata": {
-    "description": "Anthropic example skills",
-    "version": "1.0.0"
+    "description": "8-skills",
+    "version": "0.0.1"
   },
   "plugins": [
     {
