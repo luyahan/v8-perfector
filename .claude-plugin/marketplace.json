@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "document-skills",
+      "name": "v8-document-skills",
       "description": "Collection of v8 document",
       "source": "./",
       "strict": false,
