@@ -31,7 +31,7 @@ for file in "$V8DEV_DIR"/*.md; do
         
         # Check if file is newer or doesn't exist in reference
         if [ ! -f "$REFERENCE_DIR/$filename" ] || [ "$file" -nt "$REFERENCE_DIR/$filename" ]; then
-            cp -n "$file" "$REFERENCE_DIR/$filename"
+            cp --update=none "$file" "$REFERENCE_DIR/$filename"
             copied=$((copied + 1))
         fi
     fi
