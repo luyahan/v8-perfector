@@ -1,34 +1,53 @@
 ---
 name: v8-perfector
-description: Guide for how to code V8
+description: V8 JavaScript Engine performance optimization knowledge base. Guide for understanding and optimizing V8 performance. Includes GC, JIT, WASM, and feature implementation.
 ---
-## Overview
-On 64-bit architectures without pointer compression V8 values look like this:
 
-```
-            |----- 32 bits -----|----- 32 bits -----|
-Pointer:    |________________address______________<b>w1</b>|
-Smi:        |____int32_value____|000000000000000000<b>0</b>|
-```
+# V8 Perfector
 
-On 64-bit architectures with pointer compression
-```
-                    |----- 32 bits -----|----- 32 bits -----|
-Compressed pointer:                     |______offset_____w1|
-Compressed Smi:                         |____int31_value___0|
-```
+Comprehensive V8 performance optimization knowledge base.
 
+## Sub Skills
 
-# Reference Files
-## 📚 Documentation Library
+Load these when needed:
 
-Load these resources when need v8 knowledge:
-### Core V8 Documentation (Load First)
-- [v8_DeepWiki](./reference/v8_DeepWiki.md):
-  - V8 Overview
+### 1. v8-gc
+Garbage Collection and Memory Management
+- GC algorithms (Orinoco, Scavenger)
+- Heap optimization
+- Memory profiling
+- Sandbox
 
-### Core V8 Component (Load When need)
-- [pointer-compression](./reference/pointer-compression.md):
-  - How to support Pointer Compression
-  - define Tagged
-  - introduce SMI
+### 2. v8-jit
+JIT Compilation Pipeline
+- TurboFan compiler
+- Maglev compiler  
+- Sparkplug compiler
+- Ignition interpreter
+
+### 3. v8-wasm
+WebAssembly Support
+- WASM GC
+- Liftoff compiler
+- WASM optimization
+- Emscripten integration
+
+### 4. v8-features
+JavaScript Feature Implementation
+- Array/Object optimization
+- Async (Promises, async/await)
+- BigInt, RegExp
+- Modern JS features
+
+### 5. v8-releases
+Release Notes & History
+- Version changes
+- Performance improvements
+- Benchmark history
+
+## Core Reference
+
+Load first when learning V8:
+- `v8_DeepWiki.md` - V8 Overview
+- `pointer-compression.md` - Pointer compression
+- `cost-of-javascript-2019.md` - JS cost analysis
