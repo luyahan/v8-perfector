@@ -4,3 +4,6 @@
 [submodule "skills/v8-perfector/reference/v8-dev"]
 	path = skills/v8-perfector/reference/v8-dev
 	url = git@github.com:v8/v8.dev.git
+[submodule "skills/reference/v8.dev"]
+	path = skills/reference/v8.dev
+	url = https://github.com/v8/v8.dev.git
