@@ -5,7 +5,7 @@ description: V8 WebAssembly (WASM) support. Load this when working with WASM, WA
 
 # V8 WebAssembly
 
-Reference documents in `./reference/`:
+Reference documents in `../reference/`:
 
 ## WASM 基础
 - `wasm-gc-porting.md` - WASM GC

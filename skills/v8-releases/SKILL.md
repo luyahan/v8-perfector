@@ -5,7 +5,7 @@ description: V8 release notes and version history. Load this when looking up spe
 
 # V8 Release Notes
 
-Reference documents in `./reference/`:
+Reference documents in `../reference/`:
 
 ## Release Notes (v45-v99+)
 - `v8-release-45.md` through `v8-release-99.md`

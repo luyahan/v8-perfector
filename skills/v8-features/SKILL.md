@@ -5,7 +5,7 @@ description: V8 JavaScript feature implementation. Load this when needing to und
 
 # V8 JavaScript Features
 
-Reference documents in `./reference/`:
+Reference documents in `../reference/`:
 
 ## Array
 - `array-sort.md` - Array sorting

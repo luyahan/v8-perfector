@@ -5,7 +5,7 @@ description: V8 JIT Compilation, TurboFan, Maglev, Sparkplug. Load this when nee
 
 # V8 JIT Compilation
 
-Reference documents in `./reference/`:
+Reference documents in `../reference/`:
 
 ## TurboFan
 - `turbofan-jit.md` - TurboFan JIT

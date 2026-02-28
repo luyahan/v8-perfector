@@ -47,7 +47,7 @@ Release Notes & History
 
 ## Core Reference
 
-Load first when learning V8:
+Load from `./reference/`:
 - `v8_DeepWiki.md` - V8 Overview
 - `pointer-compression.md` - Pointer compression
 - `cost-of-javascript-2019.md` - JS cost analysis

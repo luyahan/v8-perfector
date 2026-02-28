@@ -5,7 +5,7 @@ description: V8 Garbage Collection and Memory Management. Load this when needing
 
 # V8 GC & Memory
 
-Reference documents in `./reference/`:
+Reference documents in `../reference/`:
 
 ##垃圾回收
 - `free-garbage-collection.md` - Free garbage collection
