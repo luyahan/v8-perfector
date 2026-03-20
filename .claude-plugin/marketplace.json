@@ -15,7 +15,13 @@
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/v8-perfector"
+        "./skills/v8-advanced",
+        "./skills/v8-features",
+        "./skills/v8-gc",
+        "./skills/v8-jit",
+        "./skills/v8-releases",
+        "./skills/v8-wasm",
+        "./skills/fix-review-comment"
       ]
     }
   ]
