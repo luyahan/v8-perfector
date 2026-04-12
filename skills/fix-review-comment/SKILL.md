@@ -5,14 +5,14 @@ description: Guide for addressing upstream Gerrit review comments. This skill sh
 
 # Fix Review Comment
 
-This skill guides the process of addressing upstream Gerrit review comments with a structured, plan-first approach.
+This skill guides the process of addressing upstream Gerrit review comments with a structured, efficient approach.
 
 ## Purpose
 
 Ensure review comments are addressed correctly by:
-1. Understanding the comment in full context
-2. Planning the fix before making changes
-3. Verifying correctness before submitting
+1. Fetching and understanding comments in context
+2. Familiarizing with the overall change first
+3. Making targeted fixes with confidence tracking
 
 ## When to Use
 
@@ -25,46 +25,40 @@ Use this skill when:
 
 ### Step 1: Fetch Comments
 
-Retrieve the review comments using Gerrit's command:
+Retrieve unresolved comments in JSON format for easier parsing:
 
 ```bash
-git cl comments
+git cl comments --unresolved -j -
 ```
 
-This displays all unresolved comments on the current CL.
+- If there are no comments, stop here and inform the user
+- Focus only on the "comments" array in the output
+- Tell the user how many comments were found
 
-### Step 2: Understand Context
+### Step 2: Familiarize with the Change
 
-Before planning a fix:
+Before addressing individual comments, understand the overall change:
 
-1. **Read the comment carefully** - Understand what the reviewer is asking for
-2. **Locate the relevant code** - Open the affected files
-3. **Examine surrounding context** - Look at nearby code for patterns, conventions, and dependencies
-4. **Consider the broader impact** - Will this change affect other files or tests?
+```bash
+git diff --merge-base origin/main HEAD
+```
 
-### Step 3: Create Fix Plan
+This provides context for understanding:
+- The scope and intent of the change
+- Related code that might be affected
+- Patterns and conventions already established in the change
 
-Write a summary to `fix-plan.md` in the repository root. Use the template from `references/fix-plan-template.md`:
+### Step 3: Process Comments
 
-The plan should include:
-- **Comment content** - What the reviewer said
-- **Proposed fix** - The approach and specific changes
-- **Rationale** - Why this fix addresses the comment correctly
+Go through comment entries one by one. For each comment:
 
-### Step 4: Review the Plan
+1. **Locate the relevant code** - Open the affected files
+2. **Examine surrounding context** - Look at nearby code for patterns and dependencies
+3. **Determine confidence level**:
+   - If confident in how to address it: make the change
+   - If not confident: skip and note the comment content for later review
 
-Before implementing:
-
-1. Read through `fix-plan.md` completely
-2. Verify the approach aligns with surrounding code conventions
-3. Ensure the fix addresses the root cause, not just symptoms
-4. Check if tests need updating
-
-### Step 5: Implement the Fix
-
-Make the code changes directly based on the approved plan.
-
-### Step 6: Verify
+### Step 4: Verify
 
 Run the build to ensure correctness:
 
@@ -72,32 +66,33 @@ Run the build to ensure correctness:
 # For V8: use gm.py
 tools/dev/gm.py quiet x64.optdebug
 
-# Or run specific tests if needed
-tools/run-tests.py --progress dots --outdir=out/x64.optdebug
+# For Chromium: use autoninja
+autoninja -C out/Default
 ```
 
-### Step 7: Format
+### Step 5: Format
 
-Apply code formatting before committing:
+Apply code formatting before finalizing:
 
 ```bash
 git cl format
 ```
 
-### Step 8: Cleanup
+### Step 6: Summary
 
-Discard the temporary plan file:
+Report back to the user:
 
-```bash
-rm fix-plan.md
-```
+1. How many changes were made
+2. Content of any comments that were not addressed (require user input)
+3. Suggest next steps if applicable
 
 ## Best Practices
 
-- **One comment at a time** - Focus on a single comment to avoid confusion
-- **Context matters** - Always look at surrounding code before planning
-- **Plan before code** - Writing the plan catches issues early
+- **Context first** - Always run git diff to understand the overall change before fixing individual comments
+- **Confidence-based** - Only make changes you're confident about; escalate uncertain ones
+- **One comment at a time** - Process sequentially to avoid confusion
 - **Build before format** - Verify correctness first, then apply style
+- **Track unaddressed** - Keep a list of comments that need user guidance
 
 ## Common Patterns
 
@@ -117,10 +112,17 @@ rm fix-plan.md
 
 - Identify the root cause, not just the symptom
 - Add or update tests to prevent regression
-- Document any non-obvious decisions in the plan
+
+### Uncertain Cases
+
+If you're not confident about a comment:
+- Skip making the change
+- Note the comment content
+- Present it to the user for guidance
+- Consider asking clarifying questions
 
 ## Resources
 
 ### references/
 
-- `fix-plan-template.md` - Template for structuring the fix plan document
+- `fix-plan-template.md` - Template for documenting complex fixes (optional, use when needed)
