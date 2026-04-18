@@ -21,7 +21,8 @@
         "./skills/v8-jit",
         "./skills/v8-releases",
         "./skills/v8-wasm",
-        "./skills/fix-review-comment"
+        "./skills/fix-review-comment",
+        "./skills/riscv-port-tracker"
       ]
     }
   ]
